@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="main-header">
         <h1>Tic-Tac-Toe</h1>
         <p>Built from scratch with HTML, CSS, and JavaScript</p>
     </header>
@@ -28,8 +28,8 @@
                     <input type="text" name="playername" id="username">
                 </div>
                 <div>
-                    <button type="button">Cancel</button>
-                    <button type="submit">Confirm</button>
+                    <button type="button" class="btn btn-alt">Cancel</button>
+                    <button type="submit" class="btn">Confirm</button>
                 </div>
             </form>
         </aside>
@@ -41,7 +41,7 @@
                         <h2>Player 1</h2>
                         <p>PLAYER NAME</p>
                         <p>X</p>
-                        <button>Edit</button>
+                        <button class="btn btn-alt">Edit</button>
                     </article>
                 </li>
                 <li>
@@ -49,11 +49,11 @@
                         <h2>Player 2</h2>
                         <p>PLAYER NAME</p>
                         <p>O</p>
-                        <button>Edit</button>
+                        <button class="btn btn-alt">Edit</button>
                     </article>
                 </li>
             </ol>
-            <button>Start New Game</button>
+            <button class="btn">Start New Game</button>
         </section>
         <section id="active-game">
             <h3>You won <span id="winner">PLAYER NAME</span>!</h3>
