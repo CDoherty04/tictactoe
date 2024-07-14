@@ -5,12 +5,8 @@ const gameData = [
 ]
 
 let editedPlayer = 0
-<<<<<<< HEAD
 let activePlayer = 1
 let curRound = 1
-=======
-let activePlayer = 0
->>>>>>> fe430886ab55e6690d702d68b3375644b83bc643
 
 const players = [
     {

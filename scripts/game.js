@@ -1,7 +1,6 @@
 function startGame() {
     gameDisplay.style.display = "block"
 
-<<<<<<< HEAD
     activePlayerName.textContent = players[activePlayer-1].name
 }
 
@@ -67,31 +66,4 @@ function checkGameOver() {
     }
 
     return 0
-=======
-    activePlayerName.textContent = players[activePlayer].name
-}
-
-function selectGameField(event) {
-    
-    const selectedCol = +event.target.dataset.col
-    const selectedRow = +event.target.dataset.row
-    
-    if (gameData[selectedRow][selectedCol] !== 0) {
-        return
-    }
-    
-    event.target.textContent = players[activePlayer].symbol
-    event.target.classList.add("disabled")
-    
-    gameData[selectedRow][selectedCol] = players[activePlayer].symbol
-
-    if (!activePlayer) {
-        activePlayer = 1
-    }
-    else {
-        activePlayer = 0
-    }
-
-    activePlayerName.textContent = players[activePlayer].name
->>>>>>> fe430886ab55e6690d702d68b3375644b83bc643
 }
