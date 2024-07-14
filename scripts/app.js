@@ -1,5 +1,16 @@
 let editedPlayer = 0
 
+const players = [
+    {
+        name:"Player 1",
+        symbol:"X"
+    },
+    {
+        name:"Player 2",
+        symbol:"O"
+    }
+]
+
 const configOverlay = document.getElementById("config-overlay")
 const backdrop = document.getElementById("backdrop")
 const formElement = document.querySelector("form")
@@ -12,4 +23,5 @@ const cancelConfigButton = document.getElementById("cancel-button")
 editP1Button.addEventListener("click", openPlayerConfig)
 editP2Button.addEventListener("click", openPlayerConfig)
 cancelConfigButton.addEventListener("click", closePlayerConfig)
+backdrop.addEventListener("click", closePlayerConfig)
 formElement.addEventListener("submit", submitPlayerConfig)

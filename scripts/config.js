@@ -10,6 +10,7 @@ function closePlayerConfig() {
     backdrop.style.display = "none"
     formElement.firstElementChild.classList.remove("error")
     inputErrorOutput.textContent = ""
+    formElement.firstElementChild.children[1].value = ""
 }
 
 function submitPlayerConfig(event) {
@@ -30,4 +31,8 @@ function submitPlayerConfig(event) {
 
     const updatedPlayerDataElement = document.getElementById("player-" + curPlayerNum + "-data")
     updatedPlayerDataElement.children[1].textContent = playerName
+
+    players[curPlayerNum - 1].name = playerName
+
+    closePlayerConfig()
 }
