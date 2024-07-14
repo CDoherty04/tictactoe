@@ -7,6 +7,7 @@ const gameData = [
 let editedPlayer = 0
 let activePlayer = 1
 let curRound = 1
+let gameIsOver = false
 
 const players = [
     {
@@ -25,6 +26,8 @@ const formElement = document.querySelector("form")
 const inputErrorOutput = document.getElementById("input-error")
 const gameDisplay = document.getElementById("active-game")
 const activePlayerName = document.getElementById("active-player")
+const gameOverDisplay = document.getElementById("game-over")
+const turnDisplay = document.getElementById("turn-display")
 
 const editP1Button = document.getElementById("edit-player-1")
 const editP2Button = document.getElementById("edit-player-2")

@@ -1,7 +1,30 @@
-function startGame() {
-    gameDisplay.style.display = "block"
+function resetGame() {
+    editedPlayer = 0
+    activePlayer = 1
+    curRound = 1
+    gameIsOver = false
 
-    activePlayerName.textContent = players[activePlayer-1].name
+    gameOverDisplay.style.display = "none"
+    gameOverDisplay.firstElementChild.innerHTML = "You won <span id=\"winner\">PLAYER NAME</span>!"
+
+    let fieldIndex = 0
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            gameData[i][j] = 0
+            gameFieldElements[fieldIndex].textContent = ""
+            gameFieldElements[fieldIndex].classList.remove("disabled")
+            fieldIndex++
+        }
+    }
+}
+
+function startGame() {
+    resetGame()
+
+    gameDisplay.style.display = "block"
+    activePlayerName.textContent = players[activePlayer - 1].name
+
+    // gameDisplay.style.display = "none"
 }
 
 function switchPlayer() {
@@ -17,20 +40,20 @@ function selectGameField(event) {
     const selectedCol = +event.target.dataset.col
     const selectedRow = +event.target.dataset.row
 
-    if (gameData[selectedRow][selectedCol] !== 0) {
+    if (gameData[selectedRow][selectedCol] !== 0 || gameIsOver) {
         return
     }
 
-    event.target.textContent = players[activePlayer-1].symbol
+    event.target.textContent = players[activePlayer - 1].symbol
     event.target.classList.add("disabled")
 
     gameData[selectedRow][selectedCol] = activePlayer
 
     switchPlayer()
-    activePlayerName.textContent = players[activePlayer-1].name
+    activePlayerName.textContent = players[activePlayer - 1].name
 
     curRound++
-    checkGameOver()
+    endGame(checkGameOver())
 }
 
 function checkGameOver() {
@@ -66,4 +89,18 @@ function checkGameOver() {
     }
 
     return 0
+}
+
+function endGame(winner) {
+
+    if (winner > 0) {
+        gameOverDisplay.style.display = "block"
+        gameOverDisplay.firstElementChild.firstElementChild.textContent = players[winner - 1].name
+        gameIsOver = true
+    }
+    else if (winner === -1) {
+        gameOverDisplay.style.display = "block"
+        gameOverDisplay.firstElementChild.textContent = "It's a draw!"
+        gameIsOver = true
+    }
 }
