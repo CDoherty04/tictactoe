@@ -34,6 +34,7 @@ body {
 }
 
 .btn-alt:hover {
-    background-color: rgb(205, 230, 255);
+    background-color: rgb(161, 208, 255);
+    color: white;
     border-color: transparent;
 }
